@@ -1,0 +1,58 @@
+build-development:
+    image: docker:19.03.13
+    stage: build
+    services:
+        - docker:19.03.13-dind
+    script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+        - docker build -f Dockerfile-dev --tag $CI_REGISTRY_IMAGE:latest-development .
+        - docker push $CI_REGISTRY_IMAGE:latest-development
+    only:
+        - development
+
+deploy-development:
+    image: 
+        name: bitnami/kubectl
+        entrypoint: [""]
+    stage: deploy
+    script:
+        - kubectl rollout restart deployment agh-website-dev --namespace=development
+    only:
+        - development
+
+build-and-deploy-production:
+    image: node
+    stage: deploy
+    before_script:
+        - apt-get update -qq
+        - apt-get install -qq git
+        - 'which ssh-agent || ( apt-get install -qq openssh-client )'
+        - eval $(ssh-agent -s)
+        - ssh-add <(echo "$SSH_PRIVATE_KEY")
+        - mkdir -p ~/.ssh
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    script:
+        - curl https://agh-tapcy-route-fixer.enl-projects.com > routes.file
+        - npm install
+        - PROD=prod ROUTES=$(cat routes.file) npm run generate
+        - rm routes.file
+        - git clone https://cicd-token:BF3RG3Bxvzz7uVD59Eto@gitlab.com/enlighten1/agh-targi-pracy-registration-form.git
+        - cd agh-targi-pracy-registration-form
+        - npm install
+        - npm run generate
+        - cd ..
+        - mv agh-targi-pracy-registration-form/dist dist/rejestracja
+        - rm -rf agh-targi-pracy-registration-form
+        - tar -zcf strona.tar.gz dist/
+        - scp strona.tar.gz targi@targi.agh.edu.pl:/home/targi
+        - |
+            ssh targi@targi.agh.edu.pl "
+                set -x ;
+                tar -xzf strona.tar.gz &&
+                rm -rf /var/www/targi/* &&
+                mv dist/* /var/www/targi/ &&
+                rm -rf dist &&
+                rm strona.tar.gz
+            "
+    only:
+        - master

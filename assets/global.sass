@@ -1,0 +1,141 @@
+$mdi-font-path: "~@mdi/font/fonts" !default
+@import '~@mdi/font/scss/materialdesignicons'
+
+.v-application
+    font-family: 'Space Grotesk', sans-serif !important
+    font-weight: 400 !important
+    font-style: normal
+
+.v-navigation-drawer
+    width: 100% !important
+
+.v-btn
+    letter-spacing: initial !important
+
+h1
+    // font-size: 2.2em
+    line-height: 1.4
+    // @media(max-width: 599.98px)
+    //     font-size: 1.75em
+
+h2
+    margin-bottom: 30px
+    line-height: 1.4
+    // @media(max-width: 599.98px)
+    //     font-size: 1.25em
+
+h3
+    // font-size: 1.3em
+    line-height: 1.4
+    margin-bottom: 15px
+    // @media(max-width: 599.98px)
+    //     font-size: 1.125em
+
+.container
+    // overwriting
+    @media(min-width: 1904px)
+        max-width: initial !important
+
+    @media(min-width: 1264px)
+        max-width: initial !important
+
+    @media(min-width: 960px)
+        max-width: initial !important
+
+    // new media queries
+    @media(min-width: 1904px)
+        // max-width: 1785px !important
+        max-width: 1485px !important
+        // max-width: 1185px !important
+
+    @media(max-width: 1903.98px)
+        max-width: 1185px !important
+
+    @media(max-width: 1263.98px)
+        width: 95% !important
+        max-width: 1185px !important
+
+    @media(max-width: 959.98px)
+        width: initial !important
+        padding: 12px 20px !important
+
+    @media(max-width: 767.98px)
+        padding: 12px !important
+
+    @media(max-width: 599.98px)
+
+    &.narrow
+        @media(min-width: 1904px)
+            max-width: 1185px !important
+
+ul
+    list-style: none
+    margin-left: 0
+    padding-left: 5px !important
+    margin-bottom: 20px
+
+    li
+        padding-left: 1em
+        text-indent: -1em
+        margin-bottom: 20px
+
+        &::before
+            content: "→"
+            margin-left: -5px
+            margin-right: 5px
+
+// helpers
+.radius
+    border-radius: 10px
+    overflow: hidden
+
+.relative
+    position: relative
+
+.absolute
+    position: absolute
+
+.z-index-1
+    z-index: 1
+    position: relative
+.z-index-1
+    z-index: 2
+    position: relative
+
+.test
+    border: 1px solid red
+
+.shadow
+    box-shadow: 0px 5px 45px rgba(184, 184, 184, 0.22)
+.logo-link
+    transition: .2s all ease-in-out
+    &:hover
+        transform: scale(1.04)
+
+.no-underline
+    text-decoration: none
+
+.underline-on-hover
+    text-decoration: none
+    &:hover
+        text-decoration: underline
+
+.underline
+    text-decoration: underline
+
+.flex-grow-1
+    flex-grow: 1
+
+.no-active-class
+    &.theme--light.v-btn--active::before
+        opacity: 0 !important
+
+// transitions
+
+.fade-enter-active, .fade-leave-active
+    transition-duration: .2s
+    transition-property: opacity
+    transition-timing-function: ease
+
+.fade-enter, .fade-leave-active
+    opacity: 0
