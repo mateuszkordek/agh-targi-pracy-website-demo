@@ -1,6 +1,6 @@
 # Strona Wirtualnych Targów Pracy AGH
 
-    > **Uwaga:** To repozytorium zostało oczyszczone i zredukowane do niezbędnych plików umożliwiających lokalne uruchomienie aplikacji. W procesie sanityzacji usunięto historię zmian oraz dane wrażliwe i inne elementy, które nie są wymagane do działania projektu. Aplikacja funkcjonuje jako rozwiązanie frontendowe i nie wymaga backendu. Instrukcje uruchomienia poniżej.
+> **Uwaga:** To repozytorium zostało oczyszczone i zredukowane do niezbędnych plików umożliwiających lokalne uruchomienie aplikacji. W procesie sanityzacji usunięto historię zmian oraz dane wrażliwe i inne elementy, które nie są wymagane do działania projektu. Aplikacja funkcjonuje jako rozwiązanie frontendowe i nie wymaga backendu. Instrukcje uruchomienia poniżej.
 
 ## Opis
 
