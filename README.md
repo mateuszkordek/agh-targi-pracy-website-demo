@@ -1,5 +1,7 @@
 # Strona Wirtualnych Targów Pracy AGH
 
+    > **Uwaga:** To repozytorium zostało oczyszczone i zredukowane do niezbędnych plików umożliwiających lokalne uruchomienie aplikacji. W procesie sanityzacji usunięto historię zmian oraz dane wrażliwe i inne elementy, które nie są wymagane do działania projektu. Aplikacja funkcjonuje jako rozwiązanie frontendowe i nie wymaga backendu. Instrukcje uruchomienia poniżej.
+
 ## Opis
 
 Strona wydarzenia online organizowanego przez Akademię Górniczo Hutniczą im. Stanisława Staszica w Krakowie.
@@ -19,8 +21,6 @@ Wykorzystane technologie:
 - Wordpress jako headless CMS
 - Usprawnienia WCAG
 - Pug, Sass
-
-    > **Uwaga:** Repozytoria w **mateuszkordek-portfolio** są repozytoriami oczyszczonymi między innymi z danych wrażliwych, z tego powodu nie zawierają oryginalnej historii zmian z procesu developmentu. Repozytoria są przygotowane do uruchomienia lokalnie.
 
 ## Uruchomienie aplikacji
 
